@@ -1,0 +1,80 @@
+// variable
+$width:100%;
+
+// responsive size
+$mmobile:480px;
+$mobile:767px;
+$tablet:1023px;
+$desktop:1220px;
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: #222;
+}
+a:hover {color: #2698cb;}
+li{
+  list-style: none;
+}
+
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+body{
+  background: url('../../public/img/header_bg.jpg') repeat-x center top;
+}
+
+.clearfix{*zoom:1;}
+.clearfix::before, .clearfix::after{
+  display: block; content: ''; line-height: 0;
+} 
+.clearfix::after{
+  clear:both;
+} 
+
+.mt15{margin-top: 15px !important;}
+
+.ir_su{
+  // 대체 텍스트가 아닌 접근성을 위한 숨김 텍스트 제공
+  overflow: hidden; position: absolute; width: 0; height: 0; line-height: 0; text-indent: -999px;
+}
+
+@mixin responsive($screen){
+  @if ($screen == 'MM'){
+    @media screen and (max-width:$mmobile){
+      @content;
+    }
+  }
+  @if ($screen == 'M'){
+    @media screen and (max-width:$mobile){
+      @content;
+    }
+  }
+  @if ($screen == 'T'){
+    @media screen and (max-width:$tablet){
+      @content;
+    }
+  }
+  @if ($screen == 'D'){
+    @media screen and (max-width:$desktop){
+      @content;
+    }
+  }
+}
+
+
+@include responsive(D){
+  .container{
+    width: 100%;
+    .row{
+      padding: 0 15px;
+    }
+  }
+}

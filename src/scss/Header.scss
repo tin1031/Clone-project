@@ -1,0 +1,115 @@
+@import './utils.scss';
+
+
+header{
+  width: 100%;
+  .container{
+    .header{
+      height: 320px;
+      .h-menu{
+        text-align: right;
+        a{
+          padding: 8px 0 6px 10px;
+          color: #fff;
+          transition: color ease .3s;
+          display: inline-block;
+          &:hover{
+            color: #ccc;
+          }
+        }
+      }
+      .h-title{
+        margin-top: 50px;
+        text-align: center;
+        text-transform: uppercase;
+        h1{
+          font-size: 30px;
+          background-color: #64b5f6;
+          display: inline-block;
+          padding: 5px 50px;
+          color: #fff;
+          font-weight: 400;
+          transition: box-shadow .25s ease-in-out;
+          &:hover{
+            box-shadow:
+            inset -9em 0 0 0 #257fac,
+            inset 9em 0 0 0 #257fac;
+          }
+        }
+        a{
+          margin-top: -7px;
+          display: inline-block;
+          padding: 10px 20px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #90caf9;
+          transition: box-shadow .25s ease-in-out;
+          &:hover{
+            box-shadow:
+            0 0 0 5px rgba(75,154,191,.9) inset,
+            0 0 0 100px rgba(0,0,0,.1) inset;
+          }
+        }
+      }
+      .h-icon{
+        margin-top: 50px;
+        text-align: center;
+        ul{
+          li{
+            display: inline-block; margin: 0 2px;
+            a{
+              position: relative;
+              font-size: 35px;
+              line-height: 60px;
+              display: block;
+              background-color: #64b5f6;
+              border-radius: 50%;
+              width: 60px; height: 60px; color: #fff;
+              transition: all .3s ease;
+              span{
+                position: absolute;
+                top: -35px; left: 50%;
+                transform: translateX(-50%);
+                line-height: 1.6; font-size: 12px;
+                background-color: #64b5f6;
+                border-radius:6px 0;
+                padding: 0 6px; opacity: 0;
+                transition: all .3s ease;
+                &::before{
+                  content: '';
+                  position: absolute;
+                  left: 50%; bottom: -5px;
+                  transform: translateX(-50%);
+                  border-top: 5px solid #64b5f6;
+                  border-left: 5px solid transparent;
+                  border-right: 5px solid transparent;
+                }
+              }
+              &:hover{
+                box-shadow:
+                0 0 0 3px rgba(75,154,191,.9) inset,
+                0 0 0 100px rgba(0,0,0,.1) inset;
+              }
+              &:hover span{
+                top: -33px;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive(M){
+  header{
+    .container{
+      .header{
+        height: auto;
+        .h-title{display: none;}
+        .h-icon{display: none;}
+      }
+    }
+  }
+}
